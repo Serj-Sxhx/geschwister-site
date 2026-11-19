@@ -12,7 +12,18 @@ const img = (p, cls = "") => p.image ? `<img class="${cls}" src="${esc(p.image)}
 
 /* ---------- pages ---------- */
 const pages = {
-  home: () => `<section class="spread"><a class="page left" href="#/shop"><img src="assets/img/ed-1.jpg" alt="Knight facing the tent"></a><a class="page right" href="#/shop"><img src="assets/img/ed-2.jpg" alt="Two men in armour in the forest"></a></section>`,
+  home: () => {
+    const im = (src, alt) => `<img src="assets/img/${src}" alt="${alt}" loading="lazy">`;
+    const split = (name, l, r, cls = "") => `<section class="split ${cls}" data-section="${name}"><div class="col">${l}</div><div class="col">${r}</div></section>`;
+    const tiles = products.slice(0, 10).map((p) => `<button class="tile" data-product="${p.handle}">${img(p)}<span class="cap">${esc(p.title)}<br><i>${esc(p.color)}</i></span></button>`).join("");
+    return `<section class="spread"><a class="page left" href="#/shop"><img src="assets/img/ed-1.jpg" alt="Knight facing the tent"></a><a class="page right" href="#/shop"><img src="assets/img/ed-2.jpg" alt="Two men in armour in the forest"></a></section>
+    ${split("sport", im("ed-3.jpg", "Two men in armour playing with a ball in the forest"), im("ed-4.jpg", "Model seated on a white table in a Geschwister jersey"))}
+    ${split("graphic", im("ed-6.jpg", "Three figures in all-over print pieces in front of a tent"), im("ed-7.jpg", "Back view of a white crewneck with line-art print"))}
+    ${split("lookbook", `${im("ed-8.jpg", "Man in cream crewneck and tan trousers")}<nav class="subnav"><a href="#/shop">SHOP</a><a href="#/about">ABOUT</a><a href="#/cart">CART</a></nav>`, im("ed-9.jpg", "Two models in orange outfits on a dark ground"))}
+    ${split("rider", `<div class="emblem"><img class="mark" src="assets/img/logo.png" alt="GESCHWISTER"><img src="assets/img/22.png" alt="Mounted rider emblem" loading="lazy"></div>`, im("ed-5.jpg", "Two figures with a longbow in front of a tent"), "emblem-band")}
+    <section class="home-grid" id="shop"><div class="grid">${tiles}</div><a class="u more" href="#/shop">Shop all</a></section>
+    <section class="home-info">${pages.about()}</section>`;
+  },
   shop: () => `<section class="grid">${products.map((p) => `
     <button class="tile" data-product="${p.handle}">${img(p)}<span class="cap">${esc(p.title)}<br><i>${esc(p.color)}</i><br>${gbp(p.price)}</span></button>`).join("")}
     ${EDITORIALS.map((e) => `<button class="tile" data-editorial="${e.id}">${e.image ? `<img src="${esc(e.image)}" alt="">` : `<div class="ph">Editorial<br><small>Shop this image</small></div>`}<span class="cap">Shop this image</span></button>`).join("")}

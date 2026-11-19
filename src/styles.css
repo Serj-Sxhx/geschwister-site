@@ -59,3 +59,12 @@ summary::after{content:"+"}details[open] summary::after{content:"–"}.credit{di
   .summary{border:0;padding:0}.line{grid-template-columns:120px 1fr}.nav{width:90%}.gutter{display:none}.player{right:12px;bottom:12px}.wordmark{margin-left:0}}
 body[data-route="home"] .nav{color:#fff;mix-blend-mode:difference}
 .wordmark{padding-left:30px}
+.split{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.split .col{position:relative;padding:16px}.split .col+.col{border-left:1px solid var(--rule)}
+.split img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.subnav{display:flex;gap:28px;justify-content:center;padding:18px 0 4px;font-size:12px;letter-spacing:.08em}.subnav a{text-decoration:none}.subnav a:hover{text-decoration:underline}
+.emblem-band .emblem{display:grid;place-content:center;gap:24px;height:100%;min-height:50vh}
+.emblem-band .emblem img{aspect-ratio:auto;object-fit:contain;max-width:100%}.emblem-band .mark{height:clamp(40px,6vw,84px);width:auto;margin:0 auto}
+.home-grid{border-top:1px solid var(--rule)}.home-grid .more{display:block;text-align:center;padding:0 0 60px}.home-grid .grid{padding-bottom:30px}
+.home-info{border-top:1px solid var(--rule)}.home-info .about{padding-top:40px}
+@media(max-width:800px){.split{grid-template-columns:1fr}.split .col+.col{border-left:0;border-top:1px solid var(--rule)}}
