@@ -1,5 +1,7 @@
 # Geschwister site
 
+**Taking this over? Start with [HANDOFF.md](HANDOFF.md)**: Shopify checkout, Vercel CLI deploy, custom domain, with copy-paste Claude Code prompts.
+
 Static, no-build site (HTML + ES modules). Layout follows Saeed's WhatsApp mockups, saved in `assets/reference/`:
 book-spread home, SHOP grid, product overlay (grid fades behind, size picker, Add to Cart, ×), "Shop this image"
 overlay, cart page, About/Press, "Geschwister Radio" player.
